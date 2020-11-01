@@ -4,16 +4,18 @@ A REST service to list all the repositories of GitHub, for the provided input pr
 This service internally invokes GitHub's public REST API https://docs.github.com/en/rest/reference/search#search-repositories and returns the following information
 [{id , name, url, owner.login }]
 
+*******************
 
-Steps to run
-**************
+## Steps to run
+
 gitRepoList/gitRepoList can be kept as the project folder for IDEs like Eclipse or IntelliJ . 
 
 gitRepoList/src/main/java/com.gitRepoList.GitRepoListApplication.java -> Run As Java Application
 
-
-Supported Endpoints :
 ********************
+
+## Supported Endpoints :
+
 
 Once the application is deployed, the API has to be invoked using the following URI pattern:
 
@@ -26,9 +28,10 @@ Examples:
 This will list all the projects for the specified language, with 30 results per page. If page number is not provided,
 the first 30 rows will be displayed by default.
 
-
-Steps to create executable jar file
 ************************************
+
+## Steps to create executable jar file
+
 
 Go to the project root folder and run on console:
 
