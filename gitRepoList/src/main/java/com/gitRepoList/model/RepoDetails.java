@@ -13,7 +13,12 @@ class Owner{
 		this.login = login;
 	}
 }
-
+/**
+ * Class which maps to the JSON response received while invoking the GitHub API.
+ * 
+ * @author rorajesh
+ *
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RepoDetails{
 

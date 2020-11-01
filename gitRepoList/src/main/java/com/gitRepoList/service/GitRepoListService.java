@@ -16,6 +16,17 @@ public class GitRepoListService {
 	@Autowired
 	RestTemplate restTemplate;
 	
+	
+	/**
+	 * This method invokes the GitHub public REST API with the inputs language and page using
+	 * Spring's RestTemplate. If the value of language is invalid then RestClientException is thrown which
+	 * is handled in the ControllerErrorHandler class. 
+	 * 
+	 * @param language
+	 * @param page
+	 * @return
+	 * @throws RestClientException
+	 */
 	public AllReposList getAllProjects(String language,Integer page) throws RestClientException{
 		
 		final String uri = "https://api.github.com/search/repositories?q=language:{language}&page={page}";

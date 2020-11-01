@@ -34,6 +34,16 @@ public class ControllerErrorHandler implements ErrorController{
 		return new ErrorDetails("Error while invoking GitHub API",String.format("Expected URL to be formed like this : /projects?language={language} Eg: localhost:8080/projects?language=java"));
 	}
 	
+	/**
+	 * This method handles the scenario where the input language string passed is invalid. HTTP 422 error is
+	 * thrown by the GitHub public API, which is handled by the below method.
+	 * 
+	 * @param e
+	 * @return
+	 * @throws JsonMappingException
+	 * @throws JsonProcessingException
+	 */
+	
 	@ExceptionHandler(HttpStatusCodeException.class)
 	public AllErrorsList handleRestAPIInvocationException(HttpStatusCodeException e) 
 			throws JsonMappingException, JsonProcessingException {
@@ -44,6 +54,11 @@ public class ControllerErrorHandler implements ErrorController{
 		return ls;
 	}
 	
+	/**
+	 * If the language param is missing in the API URI, then this method will handle it/
+	 * @param e
+	 * @return
+	 */
 	@ExceptionHandler(MissingServletRequestParameterException.class)
 	public ErrorDetails missingParamException(MissingServletRequestParameterException e) {
 		

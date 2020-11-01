@@ -1,3 +1,7 @@
+/**
+ * The main controller class of the API. The only available endpoint is /projects
+ * Expected URI to be formed like /projects?language={language}&page={page}
+ */
 package com.gitRepoList.controller;
 
 import java.util.List;
@@ -17,6 +21,18 @@ public class GitRepoListController{
 	
 	@Autowired
 	GitRepoListService service;
+	
+	
+	/**
+	 * This method intercepts all the requests with /projects endpoint and redirects to the service method
+	 * if the proper input params are received, and provides the list of repositories as the response received
+	 * from the GitHub API. If the URI is not well formed or contains incorrect args, ControllerErrorHandler class
+	 *  will handle the exceptions
+	 * 
+	 * @param language
+	 * @param page
+	 * @return
+	 */
 	
 	@RequestMapping("/projects")
 	@Cacheable("projects")
